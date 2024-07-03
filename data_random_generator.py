@@ -9,7 +9,7 @@ Created on Tue Jul  2 11:00:58 2024
 import random
 import time
 import json
-import paho_mqtt.client as mqtt  # Corectarea importului
+import paho_mqtt.client as mqtt  
 import signal
 import sys
 
@@ -22,9 +22,9 @@ def simulate_air_quality():
     return round(random.uniform(0.0, 100.0), 2)
 
 # MQTT Configuration
-mqtt_broker = "82.78.81.188"
-mqtt_port = 1883
-mqtt_topic = "/training/device/Ichim-Cosmin/"
+mqtt_broker = "MQTT BROKER"
+mqtt_port = MQTT PORT
+mqtt_topic = "MQTT TOPIC"
 
 client = mqtt.Client()
 client.connect(mqtt_broker, mqtt_port, 60)
@@ -51,7 +51,7 @@ try:
         client.publish(mqtt_topic, sensor_data)
         print(f"Published: {sensor_data}")
 
-        time.sleep(60)
+        time.sleep(60)  # 
 
 except KeyboardInterrupt:
     signal_handler(None, None)
